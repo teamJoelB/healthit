@@ -5,6 +5,10 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.UserDao;
+import fr.solutec.model.User;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author esic
@@ -30,14 +34,14 @@ public class Inscription extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btConnect = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtNom = new javax.swing.JTextField();
         txtPrenom = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        cbSexe = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         txtPoids = new javax.swing.JTextField();
         txtMail = new javax.swing.JTextField();
@@ -55,8 +59,18 @@ public class Inscription extends javax.swing.JFrame {
         jLabel1.setText("Inscription");
 
         jButton1.setText("S'inscrire");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Se connecter");
+        btConnect.setText("Se connecter");
+        btConnect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConnectActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Déjà inscrit ? ");
 
@@ -66,7 +80,7 @@ public class Inscription extends javax.swing.JFrame {
 
         jLabel5.setText("Sexe :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Femme", "Homme" }));
+        cbSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Femme", "Homme" }));
 
         jLabel6.setText("Poids (kg) :");
 
@@ -84,7 +98,7 @@ public class Inscription extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(141, 141, 141)
-                .addComponent(jButton2)
+                .addComponent(btConnect)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(158, 158, 158))
@@ -104,7 +118,7 @@ public class Inscription extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(220, 220, 220)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(220, 220, 220)
@@ -129,7 +143,7 @@ public class Inscription extends javax.swing.JFrame {
                                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(202, 202, 202)))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cbSexe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtPoids)
                                         .addComponent(txtAge)
                                         .addComponent(txtTaille)
@@ -144,7 +158,7 @@ public class Inscription extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -159,7 +173,7 @@ public class Inscription extends javax.swing.JFrame {
                     .addComponent(txtMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbSexe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -178,7 +192,7 @@ public class Inscription extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btConnect))
                 .addGap(35, 35, 35))
         );
 
@@ -195,6 +209,34 @@ public class Inscription extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            String nom = txtNom.getText();
+            String prenom = txtPrenom.getText();
+            String mail = txtMail.getText();
+            String sexe = (String)cbSexe.getSelectedItem();
+            int age = Integer.parseInt(txtAge.getText());
+            double poids = Double.parseDouble(txtPoids.getText());
+            double taille = Double.parseDouble(txtTaille.getText());
+            
+            User u = new User(nom, prenom, mail, mail, age, sexe, poids, taille);
+            UserDao.insert(u);
+            JOptionPane.showMessageDialog(rootPane, "Inscription réussie !");
+                        
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur : " + e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConnectActionPerformed
+        Connection fnConnect = new Connection();
+        fnConnect.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btConnectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,9 +274,9 @@ public class Inscription extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btConnect;
+    private javax.swing.JComboBox<String> cbSexe;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -249,7 +291,7 @@ public class Inscription extends javax.swing.JFrame {
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtMail;
     private javax.swing.JPasswordField txtMdp;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNom;
     private javax.swing.JTextField txtPoids;
     private javax.swing.JTextField txtPrenom;
     private javax.swing.JTextField txtTaille;

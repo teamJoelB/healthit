@@ -46,4 +46,23 @@ public class UserDao {
         return resultat;
     }
     
+    public static void insert(User person) throws SQLException{
+        String sql = "INSERT INTO user (Nom, Prenom, Mdp, Mail, Age, Sexe, Poids, Taille) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        Connection connexion = AccessBd.getConnection();
+        
+        PreparedStatement requete = connexion.prepareStatement(sql);
+        requete.setString(1, person.getNom());
+        requete.setString(2, person.getPrenom());
+        requete.setString(3, person.getMdp());
+        requete.setString(4, person.getMail());
+        requete.setInt(5, person.getAge());
+        requete.setString(6, person.getSexe());
+        requete.setDouble(7, person.getPoids());
+        requete.setDouble(8, person.getTaille());
+        
+        requete.execute();
+        
+   
+    }
 }
