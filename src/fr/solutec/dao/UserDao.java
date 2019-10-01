@@ -5,7 +5,7 @@
  */
 package fr.solutec.dao;
 
-import com.sun.org.apache.xerces.internal.impl.dv.xs.DateTimeDV;
+
 import fr.solutec.model.User;
 import java.sql.Connection;
 import java.sql.Date;
