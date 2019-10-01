@@ -66,6 +66,11 @@ public class Home extends javax.swing.JFrame {
         btObj.setText("Mes objectifs");
 
         btActivite.setText("Mes Activités");
+        btActivite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btActiviteActionPerformed(evt);
+            }
+        });
 
         lbBienvenue.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
@@ -160,6 +165,13 @@ public class Home extends javax.swing.JFrame {
                 
         
     }//GEN-LAST:event_btDeconnectActionPerformed
+
+    private void btActiviteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActiviteActionPerformed
+        
+        Activites fnActivite = new Activites();
+        fnActivite.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btActiviteActionPerformed
 
     /**
      * @param args the command line arguments
