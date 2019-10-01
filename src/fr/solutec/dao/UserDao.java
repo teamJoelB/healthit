@@ -86,4 +86,66 @@ public class UserDao {
        
         
     }
+    
+    public static void MajProfil (User person) throws SQLException{
+        String sql = "UPDATE user SET Nom = ? WHERE IdUser = ?";
+        
+        Connection connexion = AccessBd.getConnection();
+        
+        PreparedStatement requete1 = connexion.prepareStatement(sql);
+        requete1.setString(1, person.getNom());
+        requete1.setInt(2, person.getIdUser());
+        requete1.execute();
+         
+        String sql2 = "UPDATE user SET Prenom = ? WHERE IdUser = ?";
+                  
+        PreparedStatement requete2 = connexion.prepareStatement(sql2);
+        requete2.setString(1, person.getPrenom());
+        requete2.setInt(2, person.getIdUser());
+        requete2.execute();
+        
+        String sql3 = "UPDATE user SET Mdp = ? WHERE IdUser = ?";
+        
+        PreparedStatement requete3 = connexion.prepareStatement(sql3);
+        requete3.setString(1, person.getMdp());
+        requete3.setInt(2, person.getIdUser());
+        requete3.execute();
+        
+         String sql4 = "UPDATE user SET Mail = ? WHERE IdUser = ?";
+        
+        PreparedStatement requete4 = connexion.prepareStatement(sql4);
+        requete4.setString(1, person.getMail());
+        requete4.setInt(2, person.getIdUser());
+        requete4.execute();
+        
+         String sql5 = "UPDATE user SET Age = ? WHERE IdUser = ?";
+        
+        PreparedStatement requete5 = connexion.prepareStatement(sql5);
+        requete5.setInt(1, person.getAge());
+        requete5.setInt(2, person.getIdUser());
+        requete5.execute();
+        
+         String sql6 = "UPDATE user SET Sexe = ? WHERE IdUser = ?";
+        
+        PreparedStatement requete6 = connexion.prepareStatement(sql6);
+        requete6.setString(1, person.getSexe());
+        requete6.setInt(2, person.getIdUser());
+        requete6.execute();
+        
+         String sql7 = "UPDATE user SET Poids = ? WHERE IdUser = ?";
+        
+        PreparedStatement requete7 = connexion.prepareStatement(sql7);
+        requete7.setDouble(1, person.getPoids());
+        requete7.setInt(2, person.getIdUser());
+        requete7.execute();
+        
+         String sql8 = "UPDATE user SET Taille = ? WHERE IdUser = ?";
+        
+        PreparedStatement requete8 = connexion.prepareStatement(sql8);
+        requete8.setDouble(1, person.getTaille());
+        requete8.setInt(2, person.getIdUser());
+        requete8.execute();
+       
+        
+    }
 }

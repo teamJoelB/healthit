@@ -5,7 +5,9 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.UserDao;
 import fr.solutec.model.User;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -241,7 +243,22 @@ public class Profil extends javax.swing.JFrame {
             int age = Integer.parseInt(txtAge.getText());
             Double poids = Double.parseDouble(txtPoids.getText());
             Double taille = Double.parseDouble(txtTaille.getText());
-             
+            int id = u.getIdUser();
+            
+            
+            User u1 = new User(id, nom, prenom, mdp, mail, age, sexe, poids, taille);
+            
+            try {
+            UserDao.MajProfil(u1); 
+                JOptionPane.showMessageDialog(rootPane, "Mise à jour effectuée");
+                this.setVisible(false);
+                Profil fnProfil = new Profil(u1);
+                fnProfil.setVisible(true);
+        } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
+          
+            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
