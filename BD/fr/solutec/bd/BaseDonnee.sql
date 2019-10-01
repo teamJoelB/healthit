@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 01 oct. 2019 à 08:43
+-- Généré le :  mar. 01 oct. 2019 à 11:26
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -53,21 +53,23 @@ CREATE TABLE IF NOT EXISTS `user` (
   `Nom` varchar(45) NOT NULL,
   `Prenom` varchar(45) NOT NULL,
   `Mdp` varchar(45) NOT NULL,
-  `Mail` varchar(45) NOT NULL UNIQUE,
+  `Mail` varchar(45) NOT NULL,
   `Age` int(11) DEFAULT NULL,
   `Sexe` varchar(45) DEFAULT NULL,
   `Poids` double DEFAULT NULL,
   `Taille` double DEFAULT NULL,
-  PRIMARY KEY (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  `DateCo` datetime DEFAULT NULL,
+  PRIMARY KEY (`idUser`),
+  UNIQUE KEY `Mail` (`Mail`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`idUser`, `Nom`, `Prenom`, `Mdp`, `Mail`, `Age`, `Sexe`, `Poids`, `Taille`) VALUES
-(1, 'Esperance', 'Vincent', 'VE', 've@gmail.com', 23, 'M', 60, 1.73),
-(2, 'Pflieger', 'Audrey', 'AP', 'ap@gmail.com', NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`idUser`, `Nom`, `Prenom`, `Mdp`, `Mail`, `Age`, `Sexe`, `Poids`, `Taille`, `DateCo`) VALUES
+(1, 'Esperance', 'Vincent', 'VE', 've@gmail.com', 23, 'M', 60, 1.73, NULL),
+(2, 'Pflieger', 'Audrey', 'AP', 'ap@gmail.com', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Contraintes pour les tables déchargées

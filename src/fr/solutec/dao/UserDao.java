@@ -41,6 +41,7 @@ public class UserDao {
             resultat.setSexe(rs.getString("Sexe"));
             resultat.setPoids(rs.getDouble("Poids"));
             resultat.setTaille(rs.getDouble("Taille"));
+           resultat.setDateCo(rs.getDate("DateCo"));
         }
         
         return resultat;
