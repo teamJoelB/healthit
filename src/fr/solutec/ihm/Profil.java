@@ -99,6 +99,11 @@ public class Profil extends javax.swing.JFrame {
         });
 
         jButton1.setText("Mettre à jour");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -225,6 +230,19 @@ public class Profil extends javax.swing.JFrame {
         txtTaille.setText(String.valueOf(u.getTaille()));
                 
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            String nom = txtNom.getText();
+            String prenom = txtPrenom.getText();
+            String mail = txtMail.getText();
+            String mdp = txtMdp.getText();
+            String sexe = (String)cbSexe.getSelectedItem();
+                 
+            int age = Integer.parseInt(txtAge.getText());
+            Double poids = Double.parseDouble(txtPoids.getText());
+            Double taille = Double.parseDouble(txtTaille.getText());
+             
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
