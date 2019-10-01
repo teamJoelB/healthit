@@ -5,6 +5,8 @@
  */
 package fr.solutec.model;
 
+import java.util.Date;
+
 /**
  *
  * @author Joel B
@@ -20,11 +22,12 @@ public class User {
     private String sexe;
     private double poids;
     private double taille;
+    private Date dateCo;
 
     public User() {
     }
 
-    public User(int idUser, String nom, String prenom, String mdp, String mail, int age, String sexe, double poids, double taille) {
+    public User(int idUser, String nom, String prenom, String mdp, String mail, int age, String sexe, double poids, double taille, Date dateCo) {
         this.idUser = idUser;
         this.nom = nom;
         this.prenom = prenom;
@@ -34,6 +37,7 @@ public class User {
         this.sexe = sexe;
         this.poids = poids;
         this.taille = taille;
+        this.dateCo = dateCo;
     }
 
     public User(String nom, String prenom, String mdp, String mail, int age, String sexe, double poids, double taille) {
@@ -136,6 +140,15 @@ public class User {
     public void setTaille(double taille) {
         this.taille = taille;
     }
+
+    public Date getDateCo() {
+        return dateCo;
+    }
+
+    public void setDateCo(Date dateCo) {
+        this.dateCo = dateCo;
+    }
+    
     
        
 }
