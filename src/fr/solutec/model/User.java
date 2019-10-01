@@ -11,4 +11,116 @@ package fr.solutec.model;
  */
 public class User {
     
+    private int idUser;
+    private String nom; 
+    private String prenom; 
+    private String mdp;
+    private String mail;
+    private int age;
+    private String sexe;
+    private int poids;
+    private double taille;
+
+    public User() {
+    }
+
+    public User(int idUser, String nom, String prenom, String mdp, String mail, int age, String sexe, int poids, double taille) {
+        this.idUser = idUser;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mdp = mdp;
+        this.mail = mail;
+        this.age = age;
+        this.sexe = sexe;
+        this.poids = poids;
+        this.taille = taille;
+    }
+
+    public User(String nom, String prenom, String mdp, String mail) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mdp = mdp;
+        this.mail = mail;
+    }
+
+    public User(String mdp, String mail) {
+        this.mdp = mdp;
+        this.mail = mail;
+    }
+    
+    
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
+    public int getPoids() {
+        return poids;
+    }
+
+    public double getTaille() {
+        return taille;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
+
+    public void setPoids(int poids) {
+        this.poids = poids;
+    }
+
+    public void setTaille(double taille) {
+        this.taille = taille;
+    }
+    
+       
 }
