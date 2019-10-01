@@ -45,8 +45,6 @@ public class Connection extends javax.swing.JFrame {
 
         jLabel3.setText("Mot de passe :");
 
-        txtMdp.setText("jPasswordField1");
-
         jButton1.setText("Se connecter");
 
         jButton2.setText("S'inscrire");
