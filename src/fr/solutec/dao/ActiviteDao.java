@@ -18,7 +18,7 @@ import java.sql.Date;
 public class ActiviteDao {
     
      public static void insert(Activite act) throws SQLException{
-        String sql = "INSERT INTO activite (Type, Valeur, Date) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO activite (Type, Valeur, Date, User_idUser) VALUES (?, ?, ?, ?)";
         
         Connection connexion = AccessBd.getConnection();
         

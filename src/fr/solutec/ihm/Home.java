@@ -185,7 +185,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btActiviteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActiviteActionPerformed
         
-        RecapAct fnActivite = new RecapAct();
+        RecapAct fnActivite = new RecapAct(u);
         fnActivite.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btActiviteActionPerformed
