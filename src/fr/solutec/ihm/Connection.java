@@ -131,8 +131,8 @@ public class Connection extends javax.swing.JFrame {
             
             if (u != null){
             // JOptionPane.showMessageDialog(rootPane, "Bien ouej BG");
-                Membre fnMember = new Membre(u);
-                fnMember.setVisible(true);
+                Home fnHome = new Home(u);
+                fnHome.setVisible(true);
                 this.setVisible(false);
             }
             
