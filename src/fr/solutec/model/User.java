@@ -36,6 +36,21 @@ public class User {
         this.taille = taille;
     }
 
+    public User(String nom, String prenom, String mdp, String mail, int age, String sexe, double poids, double taille) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mdp = mdp;
+        this.mail = mail;
+        this.age = age;
+        this.sexe = sexe;
+        this.poids = poids;
+        this.taille = taille;
+    }
+    
+    
+
+
+
     public User(String nom, String prenom, String mdp, String mail) {
         this.nom = nom;
         this.prenom = prenom;
