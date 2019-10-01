@@ -61,6 +61,7 @@ public class UserDao {
         requete.setString(2, person.getPrenom());
         requete.setString(3, person.getMdp());
         requete.setString(4, person.getMail());
+        
         requete.setInt(5, person.getAge());
         requete.setString(6, person.getSexe());
         requete.setDouble(7, person.getPoids());

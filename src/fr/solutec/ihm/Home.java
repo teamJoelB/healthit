@@ -60,6 +60,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         btProfil.setText("Mon Profil");
+        btProfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btProfilActionPerformed(evt);
+            }
+        });
 
         btAide.setText("? Aide");
 
@@ -148,6 +153,18 @@ public class Home extends javax.swing.JFrame {
             lbDateCo.setText("Dernière connexion le : \n " + u.getDateCo());
         }
         
+        if(u.getPoids() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre poids dans l'onglet 'Mon Profil'");
+        }
+        
+        if(u.getAge() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre âge dans l'onglet 'Mon Profil'");
+        }
+        
+       if(u.getTaille()== 0) {
+            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre taille dans l'onglet 'Mon Profil'");
+        }        
+        
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -172,6 +189,12 @@ public class Home extends javax.swing.JFrame {
         fnActivite.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btActiviteActionPerformed
+
+    private void btProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProfilActionPerformed
+        Profil fnProfil = new Profil(u);
+        fnProfil.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btProfilActionPerformed
 
     /**
      * @param args the command line arguments

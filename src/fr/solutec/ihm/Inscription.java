@@ -227,9 +227,20 @@ public class Inscription extends javax.swing.JFrame {
             String mail = txtMail.getText();
             String mdp = txtMdp.getText();
             String sexe = (String)cbSexe.getSelectedItem();
-            int age = Integer.parseInt(txtAge.getText());
-            double poids = Double.parseDouble(txtPoids.getText());
-            double taille = Double.parseDouble(txtTaille.getText());
+            int age = 0;
+            double taille = 0;
+            double poids = 0;
+            
+           if(!txtAge.getText().equals("")){
+                 age = Integer.parseInt(txtAge.getText());
+           }
+           if(!txtPoids.getText().equals("")){
+             poids = Double.parseDouble(txtPoids.getText());
+           }
+           if(!txtTaille.getText().equals("")){
+             taille = Double.parseDouble(txtTaille.getText());
+           }
+           
             
             User u = new User(nom, prenom, mdp, mail, age, sexe, poids, taille);
             UserDao.insert(u);
