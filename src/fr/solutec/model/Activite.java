@@ -18,13 +18,15 @@ public class Activite {
     private String type;
     private Double valeur;
     private Date dateAct; 
+    private int idUser;
     
     public Activite(){}
     
-    public Activite (String type, Double valeur, Date dateAct){
+    public Activite (String type, Double valeur, Date dateAct, int idUser){
         this.type = type;
         this.valeur = valeur;
         this.dateAct = dateAct;
+        this.idUser = idUser;
     }
 
     public int getIdActivite() {
@@ -58,7 +60,14 @@ public class Activite {
     public void setDateAct(Date dateAct) {
         this.dateAct = dateAct;
     }
-   
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
     
 }
 

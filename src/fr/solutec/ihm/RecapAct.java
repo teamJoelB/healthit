@@ -6,7 +6,9 @@
 package fr.solutec.ihm;
 
 import fr.solutec.dao.ActiviteDao;
-import fr.solutec.model.Activite;
+import fr.solutec.model.*;
+import java.time.LocalDate;
+import java.util.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,8 +20,15 @@ public class RecapAct extends javax.swing.JFrame {
     /**
      * Creates new form Activites
      */
-    public RecapAct() {
+    private static User u;
+    
+    public RecapAct(User u) {
         initComponents();
+        this.u = u;
+    }
+    private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
     }
 
     /**
@@ -131,18 +140,23 @@ public class RecapAct extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValiderActionPerformed
-        /*
+        
        try {
-           
-           
-            Activite act = new Activite(type, valeur, dateAct);
+            String type = (String)cbAct.getSelectedItem();
+            Double valeur = Double.parseDouble(txtAct.getText());
+            Date dateAct = new Date();
+            dateAct = convertUtilToSql(dateAct);
+            int idUser = u.getIdUser(); 
+            
+            Activite act = new Activite(type, valeur, dateAct, idUser);
             ActiviteDao.insert(act);
             JOptionPane.showMessageDialog(rootPane, "Validé");
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Excetion : " + e.getMessage());
         }
-   */
+       
+   
     }//GEN-LAST:event_btValiderActionPerformed
 
     /**
@@ -175,7 +189,7 @@ public class RecapAct extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RecapAct().setVisible(true);
+                new RecapAct(u).setVisible(true);
             }
         });
     }
