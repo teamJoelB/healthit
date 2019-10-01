@@ -234,6 +234,10 @@ public class Inscription extends javax.swing.JFrame {
             User u = new User(nom, prenom, mdp, mail, age, sexe, poids, taille);
             UserDao.insert(u);
             JOptionPane.showMessageDialog(rootPane, "Inscription réussie !");
+            
+            Connection fnConnection = new Connection();
+            fnConnection.setVisible(true);
+            this.setVisible(false);
                         
             
         } catch (Exception e) {
