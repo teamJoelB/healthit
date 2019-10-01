@@ -5,6 +5,7 @@
  */
 package fr.solutec.dao;
 
+import fr.solutec.model.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,7 +32,7 @@ public class UserDao {
         
         if(rs.next()){
             resultat = new User();
-            resultat.setId(rs.getInt("idUser"));
+            resultat.setIdUser(rs.getInt("idUser"));
             resultat.setNom(rs.getString("Nom"));
             resultat.setPrenom(rs.getString("Prenom"));
             resultat.setMdp(rs.getString("Mdp"));

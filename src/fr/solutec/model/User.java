@@ -18,13 +18,13 @@ public class User {
     private String mail;
     private int age;
     private String sexe;
-    private int poids;
+    private double poids;
     private double taille;
 
     public User() {
     }
 
-    public User(int idUser, String nom, String prenom, String mdp, String mail, int age, String sexe, int poids, double taille) {
+    public User(int idUser, String nom, String prenom, String mdp, String mail, int age, String sexe, double poids, double taille) {
         this.idUser = idUser;
         this.nom = nom;
         this.prenom = prenom;
@@ -78,7 +78,7 @@ public class User {
         return sexe;
     }
 
-    public int getPoids() {
+    public double getPoids() {
         return poids;
     }
 
@@ -114,7 +114,7 @@ public class User {
         this.sexe = sexe;
     }
 
-    public void setPoids(int poids) {
+    public void setPoids(double poids) {
         this.poids = poids;
     }
 
