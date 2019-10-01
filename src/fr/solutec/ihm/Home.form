@@ -115,6 +115,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Mes Activit&#xe9;s"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btActiviteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbBienvenue">
           <Properties>
