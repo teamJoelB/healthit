@@ -5,11 +5,15 @@
  */
 package fr.solutec.dao;
 
+import com.sun.org.apache.xerces.internal.impl.dv.xs.DateTimeDV;
 import fr.solutec.model.User;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+
 
 /**
  *
@@ -65,5 +69,20 @@ public class UserDao {
         requete.execute();
         
    
+    }
+    
+    public static void MajDateCo(User person) throws SQLException{
+        Date date = Date.valueOf(LocalDate.now());
+        
+        String sql = "UPDATE user SET DateCO = ?";
+        
+        Connection connexion = AccessBd.getConnection();
+        
+        PreparedStatement requete = connexion.prepareStatement(sql);
+        requete.setDate(1, date);
+        
+        requete.execute();
+       
+        
     }
 }

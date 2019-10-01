@@ -42,18 +42,14 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="lbDateCo" min="-2" pref="197" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="btDeconnect" min="-2" pref="125" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="btAide" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
-                          <Component id="lbBienvenue" min="-2" pref="318" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
                           <Component id="btProfil" min="-2" pref="121" max="-2" attributes="0"/>
@@ -62,6 +58,12 @@
                               <Component id="btObj" pref="120" max="32767" attributes="0"/>
                               <Component id="btActivite" max="32767" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="btAide" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                          <Component id="lbBienvenue" min="-2" pref="318" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="168" max="32767" attributes="0"/>
@@ -81,11 +83,20 @@
                       <Component id="btObj" pref="68" max="32767" attributes="0"/>
                       <Component id="btProfil" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Component id="btActivite" min="-2" pref="77" max="-2" attributes="0"/>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
-                  <Component id="btDeconnect" min="-2" pref="53" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="btActivite" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <Component id="btDeconnect" min="-2" pref="53" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lbDateCo" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,6 +106,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Se d&#xe9;connecter"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btDeconnectActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btProfil">
           <Properties>
@@ -122,6 +136,8 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbDateCo">
         </Component>
       </SubComponents>
     </Container>
