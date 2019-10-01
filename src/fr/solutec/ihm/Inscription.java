@@ -37,7 +37,7 @@ public class Inscription extends javax.swing.JFrame {
         txtPrenom = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jLabel6 = new javax.swing.JLabel();
         txtPoids = new javax.swing.JTextField();
         txtMail = new javax.swing.JTextField();
@@ -66,7 +66,7 @@ public class Inscription extends javax.swing.JFrame {
 
         jLabel5.setText("Sexe :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Femme", "Homme" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Femme", "Homme" }));
 
         jLabel6.setText("Poids (kg) :");
 
@@ -77,8 +77,6 @@ public class Inscription extends javax.swing.JFrame {
         jLabel9.setText("Age : ");
 
         jLabel10.setText("Taille (m) :");
-
-        txtMdp.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
