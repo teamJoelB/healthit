@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `Nom` varchar(45) NOT NULL,
   `Prenom` varchar(45) NOT NULL,
   `Mdp` varchar(45) NOT NULL,
-  `Mail` varchar(45) NOT NULL,
+  `Mail` varchar(45) NOT NULL UNIQUE,
   `Age` int(11) DEFAULT NULL,
   `Sexe` varchar(45) DEFAULT NULL,
   `Poids` double DEFAULT NULL,
