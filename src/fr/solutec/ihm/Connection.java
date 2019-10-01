@@ -5,6 +5,10 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.UserDao;
+import fr.solutec.model.User;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author esic
@@ -46,6 +50,11 @@ public class Connection extends javax.swing.JFrame {
         jLabel3.setText("Mot de passe :");
 
         jButton1.setText("Se connecter");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("S'inscrire");
 
@@ -112,6 +121,28 @@ public class Connection extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try {
+            String mail = txtMail.getText();
+            String mdp = txtMdp.getText();
+            User u = UserDao.getByLoginPass(mail, mdp);
+            
+            if (u != null){
+            // JOptionPane.showMessageDialog(rootPane, "Bien ouej BG");
+                Membre fnMember = new Membre(u);
+                fnMember.setVisible(true);
+                this.setVisible(false);
+            }
+            
+            else {
+                JOptionPane.showMessageDialog(rootPane, "Erreur d'identification");
+            }
+        } catch (Exception e) {  
+            JOptionPane.showMessageDialog(rootPane, "except : " + e.getMessage());
+        } 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
