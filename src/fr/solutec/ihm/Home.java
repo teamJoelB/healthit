@@ -60,6 +60,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         btProfil.setText("Mon Profil");
+        btProfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btProfilActionPerformed(evt);
+            }
+        });
 
         btAide.setText("? Aide");
 
@@ -184,6 +189,12 @@ public class Home extends javax.swing.JFrame {
         fnActivite.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btActiviteActionPerformed
+
+    private void btProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btProfilActionPerformed
+        Profil fnProfil = new Profil(u);
+        fnProfil.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btProfilActionPerformed
 
     /**
      * @param args the command line arguments
