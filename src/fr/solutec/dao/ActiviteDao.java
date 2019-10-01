@@ -10,6 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -30,4 +34,26 @@ public class ActiviteDao {
         
         requete.execute();
      }
+     
+     public static List<Activite> getActivitesUser() throws SQLException{
+         
+        List<Activite> result = new ArrayList<>();
+        
+        String sql = "SELECT * FROM activite";
+        Connection connexion = AccessBd.getConnection();
+        
+        Statement requette = connexion.createStatement();
+        
+        ResultSet rs = requette.executeQuery(sql);
+        
+        while (rs.next()){
+            Activite act = new Activite();
+            act.setType(rs.getString("Type"));
+            act.setValeur(rs.getDouble("Valeur"));
+            act.setDateAct(rs.getDate("Date"));
+            
+            result.add(act);
+        }
+        return result;
+    }
 }
