@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class Activite {
     
-    private int idActivité;
+    private int idActivite;
     private String type;
     private Double valeur;
     private Date dateAct; 
@@ -27,8 +27,8 @@ public class Activite {
         this.dateAct = dateAct;
     }
 
-    public int getIdActivité() {
-        return idActivité;
+    public int getIdActivite() {
+        return idActivite;
     }
 
     public String getType() {
@@ -43,8 +43,8 @@ public class Activite {
         return dateAct;
     }
 
-    public void setIdActivité(int idActivité) {
-        this.idActivité = idActivité;
+    public void setIdActivite(int idActivite) {
+        this.idActivite = idActivite;
     }
 
     public void setType(String type) {
