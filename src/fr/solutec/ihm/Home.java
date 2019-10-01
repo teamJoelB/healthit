@@ -148,6 +148,18 @@ public class Home extends javax.swing.JFrame {
             lbDateCo.setText("Dernière connexion le : \n " + u.getDateCo());
         }
         
+        if(u.getPoids() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre poids dans l'onglet 'Mon Profil'");
+        }
+        
+        if(u.getAge() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre âge dans l'onglet 'Mon Profil'");
+        }
+        
+       if(u.getTaille()== 0) {
+            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre taille dans l'onglet 'Mon Profil'");
+        }        
+        
         
     }//GEN-LAST:event_formWindowOpened
 
