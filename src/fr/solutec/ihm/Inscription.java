@@ -215,12 +215,13 @@ public class Inscription extends javax.swing.JFrame {
             String nom = txtNom.getText();
             String prenom = txtPrenom.getText();
             String mail = txtMail.getText();
+            String mdp = txtMdp.getText();
             String sexe = (String)cbSexe.getSelectedItem();
             int age = Integer.parseInt(txtAge.getText());
             double poids = Double.parseDouble(txtPoids.getText());
             double taille = Double.parseDouble(txtTaille.getText());
             
-            User u = new User(nom, prenom, mail, mail, age, sexe, poids, taille);
+            User u = new User(nom, prenom, mdp, mail, age, sexe, poids, taille);
             UserDao.insert(u);
             JOptionPane.showMessageDialog(rootPane, "Inscription réussie !");
                         
