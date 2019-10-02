@@ -55,6 +55,11 @@ public class RecapAct extends javax.swing.JFrame {
         jLabel1.setText("Menu des activités");
 
         btHistorique.setText("Historique des activités");
+        btHistorique.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHistoriqueActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Votre activité quotidienne : ");
 
@@ -68,6 +73,11 @@ public class RecapAct extends javax.swing.JFrame {
         });
 
         jButton2.setText("Retour");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         cbAct.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "marche", "course" }));
 
@@ -151,13 +161,26 @@ public class RecapAct extends javax.swing.JFrame {
             Activite act = new Activite(type, valeur, dateAct, idUser);
             ActiviteDao.insert(act);
             JOptionPane.showMessageDialog(rootPane, "Validé");
+            txtAct.setText("");
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Excetion : " + e.getMessage());
         }
-       
-   
     }//GEN-LAST:event_btValiderActionPerformed
+
+    private void btHistoriqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHistoriqueActionPerformed
+        
+        HistoriqueAct fnHist = new HistoriqueAct(u);
+        fnHist.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btHistoriqueActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        Home fnHome = new Home(u);
+        fnHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
