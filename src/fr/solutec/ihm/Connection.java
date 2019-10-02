@@ -162,8 +162,26 @@ public class Connection extends javax.swing.JFrame {
                 Home fnHome = new Home(u);
                 fnHome.setVisible(true);
                 this.setVisible(false);
+              
                 
+                     if(u.getPoids() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre poids dans l'onglet 'Mon Profil'");
+            }
+
+            if(u.getAge() == 0) {
+                JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre âge dans l'onglet 'Mon Profil'");
+            }
+
+           if(u.getTaille()== 0) {
+                JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre taille dans l'onglet 'Mon Profil'");
+            }
                 
+                if(u.getDateCo() == null){
+            Aide fnAide = new Aide(u);
+            fnAide.setVisible(true);
+                
+                   
+            }
             }
             
             else {

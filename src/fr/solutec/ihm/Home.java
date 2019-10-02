@@ -214,24 +214,12 @@ public class Home extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         lbBienvenue.setText("Bienvenue " + u.getPrenom() + " ! ");
         
-        if(u.getDateCo() == null){
-            Aide fnAide = new Aide(u);
-            fnAide.setVisible(true);
-        }else{ 
+        
+        
             lbDateCo.setText("Dernière connexion : " + u.getDateCo());
-        }
         
-        if(u.getPoids() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre poids dans l'onglet 'Mon Profil'");
-        }
         
-        if(u.getAge() == 0) {
-            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre âge dans l'onglet 'Mon Profil'");
-        }
         
-       if(u.getTaille()== 0) {
-            JOptionPane.showMessageDialog(rootPane, "N'oubliez pas de rentrer votre taille dans l'onglet 'Mon Profil'");
-        }        
         
         
     }//GEN-LAST:event_formWindowOpened
