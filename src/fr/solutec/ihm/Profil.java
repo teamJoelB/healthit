@@ -236,7 +236,7 @@ public class Profil extends javax.swing.JFrame {
     }//GEN-LAST:event_btMenuActionPerformed
 
     private void btAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAideActionPerformed
-        Aide fnAide = new Aide();
+        Aide fnAide = new Aide(u);
         fnAide.setVisible(true);
     }//GEN-LAST:event_btAideActionPerformed
 

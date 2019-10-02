@@ -5,6 +5,10 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.*;
+import fr.solutec.model.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author esic
@@ -14,8 +18,11 @@ public class Aide extends javax.swing.JFrame {
     /**
      * Creates new form Aide
      */
-    public Aide() {
+    private static User u;
+    
+    public Aide(User u) {
         initComponents();
+        this.u = u;
     }
 
     /**
@@ -100,7 +107,13 @@ public class Aide extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOkActionPerformed
+        
+        try {
+            UserDao.MajDateCo(u);
+        } catch (Exception e) { JOptionPane.showInputDialog("exept " + e);
+        }
         this.setVisible(false);
+       
     }//GEN-LAST:event_btOkActionPerformed
 
     /**
@@ -133,7 +146,7 @@ public class Aide extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Aide().setVisible(true);
+                new Aide(u).setVisible(true);
             }
         });
     }

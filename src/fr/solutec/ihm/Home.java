@@ -215,7 +215,7 @@ public class Home extends javax.swing.JFrame {
         lbBienvenue.setText("Bienvenue " + u.getPrenom() + " ! ");
         
         if(u.getDateCo() == null){
-            Aide fnAide = new Aide();
+            Aide fnAide = new Aide(u);
             fnAide.setVisible(true);
         }else{ 
             lbDateCo.setText("Dernière connexion : " + u.getDateCo());
@@ -264,7 +264,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btProfilActionPerformed
 
     private void btAideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAideActionPerformed
-        Aide fnAide = new Aide();
+        Aide fnAide = new Aide(u);
         fnAide.setVisible(true);
     }//GEN-LAST:event_btAideActionPerformed
 
