@@ -39,14 +39,16 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btObj = new javax.swing.JButton();
         btActivite = new javax.swing.JButton();
-        lbBienvenue = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lbDateCo = new javax.swing.JLabel();
         btAide = new javax.swing.JButton();
         btProfil = new javax.swing.JButton();
         btDeconnect = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        lbBienvenue = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(550, 150));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -56,6 +58,8 @@ public class Home extends javax.swing.JFrame {
         btObj.setFont(new java.awt.Font("Eras Light ITC", 1, 24)); // NOI18N
         btObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/objectifs.png"))); // NOI18N
         btObj.setText("Mes objectifs");
+        btObj.setToolTipText("");
+        btObj.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btObj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btObjActionPerformed(evt);
@@ -72,9 +76,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        lbBienvenue.setFont(new java.awt.Font("Eras Light ITC", 1, 18)); // NOI18N
-        lbBienvenue.setText("Message d'accueil");
-
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
         lbDateCo.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
@@ -90,6 +91,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         btProfil.setBackground(new java.awt.Color(153, 204, 255));
+        btProfil.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         btProfil.setText("Mon Profil");
         btProfil.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btProfil.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +101,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         btDeconnect.setBackground(new java.awt.Color(153, 204, 255));
+        btDeconnect.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         btDeconnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-débloquer-privé-50.png"))); // NOI18N
         btDeconnect.setText("Déconnection");
         btDeconnect.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -114,11 +117,13 @@ public class Home extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btProfil, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                     .addComponent(btDeconnect, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                     .addComponent(btAide, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDateCo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lbDateCo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(128, 128, 128))
         );
 
@@ -129,16 +134,36 @@ public class Home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btAide)
-                .addGap(51, 51, 51)
+                .addGap(50, 50, 50)
                 .addComponent(btProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btDeconnect)
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(lbDateCo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btDeconnect, btProfil});
+
+        lbBienvenue.setFont(new java.awt.Font("Eras Light ITC", 1, 18)); // NOI18N
+        lbBienvenue.setText("Message d'accueil");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(181, 181, 181)
+                .addComponent(lbBienvenue)
+                .addContainerGap(213, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(lbBienvenue, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,11 +176,11 @@ public class Home extends javax.swing.JFrame {
                         .addGap(88, 88, 88)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btObj, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btActivite, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(lbBienvenue)))
-                .addContainerGap(119, Short.MAX_VALUE))
+                            .addComponent(btActivite, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btActivite, btObj});
@@ -163,9 +188,8 @@ public class Home extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lbBienvenue, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addComponent(btObj, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btActivite, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,6 +317,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btProfil;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lbBienvenue;
     private javax.swing.JLabel lbDateCo;
     // End of variables declaration//GEN-END:variables
