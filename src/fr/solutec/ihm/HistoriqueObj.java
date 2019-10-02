@@ -25,6 +25,7 @@ public class HistoriqueObj extends javax.swing.JFrame {
     
     public HistoriqueObj(User u) {
         initComponents();
+        this.u = u;
     }
 
     /**
@@ -128,7 +129,7 @@ public class HistoriqueObj extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Type d'objectif");
         model.addColumn("Valeur souhaitée");
-        model.addColumn("Date début");
+        model.addColumn("Date de début");
         model.addColumn("Date de fin");
         
          try {
@@ -136,20 +137,20 @@ public class HistoriqueObj extends javax.swing.JFrame {
             
              for (Objectif objectif : objectifs) {
                  model.addRow(new Object[]{
-                 objectif.getType(),
-                 objectif.getValeur(),
-                 objectif.getDateDeb(),
-                 objectif.getDateFin()
+                    objectif.getType(),
+                    objectif.getValeur(),
+                    objectif.getDateDeb(),
+                    objectif.getDateFin()
                  });
                 
              }
             
             
         } catch (Exception e) {
-             JOptionPane.showMessageDialog(rootPane, e.getMessage());
+             JOptionPane.showMessageDialog(rootPane, "Erreur : " + e.getMessage());
         }
         
-        
+     tableObj.setModel(model);
         
         
     }//GEN-LAST:event_formWindowOpened

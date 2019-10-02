@@ -17,6 +17,7 @@ public class Objectif {
     private Double valeur;
     private Date dateDeb;
     private Date dateFin;
+    private int idUser;
 
     public Objectif() {
     }
@@ -35,6 +36,16 @@ public class Objectif {
         this.dateDeb = dateDeb;
         this.dateFin = dateFin;
     }
+
+    public Objectif(String type, Double valeur, Date dateDeb, Date dateFin, int idUser) {
+        this.type = type;
+        this.valeur = valeur;
+        this.dateDeb = dateDeb;
+        this.dateFin = dateFin;
+        this.idUser = idUser;
+    }
+    
+    
 
     public int getIdobjectif() {
         return idobjectif;
@@ -74,6 +85,14 @@ public class Objectif {
 
     public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
     
     
