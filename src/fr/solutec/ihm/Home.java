@@ -56,8 +56,11 @@ public class Home extends javax.swing.JFrame {
         btObj.setFont(new java.awt.Font("Eras Light ITC", 1, 24)); // NOI18N
         btObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/objectifs.png"))); // NOI18N
         btObj.setText("Mes objectifs");
-        btObj.setToolTipText("");
-        btObj.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btObjActionPerformed(evt);
+            }
+        });
 
         btActivite.setFont(new java.awt.Font("Eras Light ITC", 1, 24)); // NOI18N
         btActivite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/table.jpg"))); // NOI18N
@@ -240,6 +243,12 @@ public class Home extends javax.swing.JFrame {
         Aide fnAide = new Aide();
         fnAide.setVisible(true);
     }//GEN-LAST:event_btAideActionPerformed
+
+    private void btObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btObjActionPerformed
+        Obj fnObj = new Obj(u);
+        fnObj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btObjActionPerformed
 
     /**
      * @param args the command line arguments
