@@ -162,6 +162,8 @@ public class Connection extends javax.swing.JFrame {
                 Home fnHome = new Home(u);
                 fnHome.setVisible(true);
                 this.setVisible(false);
+                
+                
             }
             
             else {
