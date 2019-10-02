@@ -41,7 +41,7 @@ public class Inscription extends javax.swing.JFrame {
         txtPrenom = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        cbSexe = new javax.swing.JComboBox<String>();
+        cbSexe = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         txtPoids = new javax.swing.JTextField();
         txtMail = new javax.swing.JTextField();
@@ -90,7 +90,7 @@ public class Inscription extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         jLabel5.setText("Sexe :");
 
-        cbSexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Femme", "Homme" }));
+        cbSexe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Femme", "Homme" }));
 
         jLabel6.setFont(new java.awt.Font("Eras Light ITC", 1, 14)); // NOI18N
         jLabel6.setText("Poids (kg) :");
