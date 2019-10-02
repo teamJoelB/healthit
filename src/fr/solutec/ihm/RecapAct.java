@@ -24,7 +24,7 @@ public class RecapAct extends javax.swing.JFrame {
     
     public RecapAct(User u) {
         initComponents();
-        this.u = u;
+        this.u = u; 
     }
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
