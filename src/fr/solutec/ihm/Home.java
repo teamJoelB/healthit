@@ -74,6 +74,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         btObj.setText("Mes objectifs");
+        btObj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btObjActionPerformed(evt);
+            }
+        });
 
         btActivite.setText("Mes Activités");
         btActivite.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +210,12 @@ public class Home extends javax.swing.JFrame {
         Aide fnAide = new Aide();
         fnAide.setVisible(true);
     }//GEN-LAST:event_btAideActionPerformed
+
+    private void btObjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btObjActionPerformed
+        Obj fnObj = new Obj(u);
+        fnObj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btObjActionPerformed
 
     /**
      * @param args the command line arguments
