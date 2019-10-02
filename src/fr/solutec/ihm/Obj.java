@@ -5,7 +5,12 @@
  */
 package fr.solutec.ihm;
 
+import fr.solutec.dao.ObjectifDao;
+import fr.solutec.model.Objectif;
 import fr.solutec.model.User;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +29,11 @@ public class Obj extends javax.swing.JFrame {
     public Obj(User u) {
         initComponents();
         this.u = u;
+    }
+    
+    private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
     }
 
     /**
@@ -60,18 +70,24 @@ public class Obj extends javax.swing.JFrame {
         jLabel2.setText("Rentrer un nouvel objectif :");
 
         cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "marche", "course", "perte de poids" }));
+        cbType.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel3.setText("Quel objectif ?");
 
         jLabel4.setText("Temps :");
 
-        jLabel5.setText("Date début :");
+        jLabel5.setText("Date début (JJ/MM/AAAA) :");
 
-        jLabel6.setText("Date fin :");
+        jLabel6.setText("Date fin (JJ/MM/AAAA) :");
 
         jLabel7.setText("min");
 
         btValider.setText("Valider l'objectif");
+        btValider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btValiderActionPerformed(evt);
+            }
+        });
 
         btRetour.setText("Retour Menu Principal");
         btRetour.addActionListener(new java.awt.event.ActionListener() {
@@ -106,12 +122,11 @@ public class Obj extends javax.swing.JFrame {
                                 .addComponent(btRetour, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(87, 87, 87)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(89, 89, 89)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cbType, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -123,7 +138,7 @@ public class Obj extends javax.swing.JFrame {
                                 .addComponent(txtDateFin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                                 .addComponent(txtDateDeb, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(btValider))))
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btHisto, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,6 +203,42 @@ public class Obj extends javax.swing.JFrame {
        fnHistobj.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_btHistoActionPerformed
+
+    private void btValiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btValiderActionPerformed
+        try {
+            String Type = (String) cbType.getSelectedItem();
+            Double Valeur = Double.parseDouble(txtTemps.getText());
+            String DateDeb = txtDateDeb.getText();
+            String DateFin = txtDateFin.getText();
+                           
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date DateD = sdf.parse(DateDeb);
+            Date DateF = sdf.parse(DateFin);
+            
+            DateD = convertUtilToSql(DateD);
+            DateF = convertUtilToSql(DateF);
+            
+            int diff = DateF.compareTo(DateD);
+            
+            if(diff >= 0){
+                int idUser = u.getIdUser();
+            
+            Objectif obj = new Objectif(Type, Valeur, DateD, DateF, idUser);
+            
+            ObjectifDao.insert(obj);
+            JOptionPane.showMessageDialog(rootPane, "Objectif enregistré !");
+           
+              } else {
+            JOptionPane.showMessageDialog(rootPane, "La date de fin ne peut pas être avant la date de début");
+                
+            }
+       
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Erreur : " + e.getMessage());
+        }
+    }//GEN-LAST:event_btValiderActionPerformed
 
     /**
      * @param args the command line arguments
