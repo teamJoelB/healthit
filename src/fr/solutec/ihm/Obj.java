@@ -70,6 +70,7 @@ public class Obj extends javax.swing.JFrame {
         jLabel2.setText("Rentrer un nouvel objectif :");
 
         cbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "marche", "course", "perte de poids" }));
+        cbType.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel3.setText("Quel objectif ?");
 
@@ -209,23 +210,30 @@ public class Obj extends javax.swing.JFrame {
             Double Valeur = Double.parseDouble(txtTemps.getText());
             String DateDeb = txtDateDeb.getText();
             String DateFin = txtDateFin.getText();
+                           
             
-                
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date DateD = sdf.parse(DateDeb);
             Date DateF = sdf.parse(DateFin);
             
             DateD = convertUtilToSql(DateD);
             DateF = convertUtilToSql(DateF);
-       
             
-            int idUser = u.getIdUser();
+            int diff = DateF.compareTo(DateD);
+            
+            if(diff >= 0){
+                int idUser = u.getIdUser();
             
             Objectif obj = new Objectif(Type, Valeur, DateD, DateF, idUser);
             
             ObjectifDao.insert(obj);
             JOptionPane.showMessageDialog(rootPane, "Objectif enregistré !");
            
+              } else {
+            JOptionPane.showMessageDialog(rootPane, "La date de fin ne peut pas être avant la date de début");
+                
+            }
+       
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Erreur : " + e.getMessage());
