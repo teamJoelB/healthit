@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 01 oct. 2019 à 11:26
+-- Généré le :  mer. 02 oct. 2019 à 07:41
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -44,6 +44,31 @@ CREATE TABLE IF NOT EXISTS `activite` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `objectif`
+--
+
+DROP TABLE IF EXISTS `objectif`;
+CREATE TABLE IF NOT EXISTS `objectif` (
+  `idobjectif` int(11) NOT NULL AUTO_INCREMENT,
+  `Type` varchar(45) NOT NULL,
+  `Valeur` double NOT NULL,
+  `dateDeb` datetime NOT NULL,
+  `DateFin` datetime NOT NULL,
+  `fk_idUser` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idobjectif`),
+  KEY `fk_idUser_idx` (`fk_idUser`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `objectif`
+--
+
+INSERT INTO `objectif` (`idobjectif`, `Type`, `Valeur`, `dateDeb`, `DateFin`, `fk_idUser`) VALUES
+(1, 'Course', 12, '2019-02-12 00:00:00', '2019-03-12 00:00:00', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -61,15 +86,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `DateCo` datetime DEFAULT NULL,
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `Mail` (`Mail`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`idUser`, `Nom`, `Prenom`, `Mdp`, `Mail`, `Age`, `Sexe`, `Poids`, `Taille`, `DateCo`) VALUES
-(1, 'Esperance', 'Vincent', 'VE', 've@gmail.com', 23, 'M', 60, 1.73, NULL),
-(2, 'Pflieger', 'Audrey', 'AP', 'ap@gmail.com', NULL, NULL, NULL, NULL, NULL);
+(1, 'Esperance', 'Vincent', 'VE', 've@gmail.com', 23, 'M', 60, 1.73, '2019-10-01 00:00:00'),
+(2, 'Pflieger', 'Audrey', 'AP', 'ap@gmail.com', 14, 'Femme', 16, 0, '2019-10-01 00:00:00'),
+(6, 'jojo', 'jojo', 'jojo', 'jojo', 0, 'Homme', 0, 0, '2019-10-01 00:00:00');
 
 --
 -- Contraintes pour les tables déchargées
@@ -80,6 +106,12 @@ INSERT INTO `user` (`idUser`, `Nom`, `Prenom`, `Mdp`, `Mail`, `Age`, `Sexe`, `Po
 --
 ALTER TABLE `activite`
   ADD CONSTRAINT `fk_Activite_User` FOREIGN KEY (`User_idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `objectif`
+--
+ALTER TABLE `objectif`
+  ADD CONSTRAINT `fk_idUser` FOREIGN KEY (`fk_idUser`) REFERENCES `user` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
