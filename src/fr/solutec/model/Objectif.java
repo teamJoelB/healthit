@@ -95,8 +95,4 @@ public class Objectif {
         this.idUser = idUser;
     }
     
-    
-    
-    
-    
 }

@@ -131,6 +131,8 @@ public class HistoriqueObj extends javax.swing.JFrame {
         model.addColumn("Valeur souhaitée");
         model.addColumn("Date de début");
         model.addColumn("Date de fin");
+        model.addColumn("Statut");
+        String a = "";
         
          try {
             List<Objectif> objectifs = ObjectifDao.getObjectifByUser(u);
@@ -140,7 +142,9 @@ public class HistoriqueObj extends javax.swing.JFrame {
                     objectif.getType(),
                     objectif.getValeur(),
                     objectif.getDateDeb(),
-                    objectif.getDateFin()
+                    objectif.getDateFin(),
+                    ObjectifDao.etatObj(objectif, u),
+                    
                  });
                 
              }

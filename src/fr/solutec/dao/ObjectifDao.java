@@ -6,6 +6,7 @@
 package fr.solutec.dao;
 
 
+import fr.solutec.model.Activite;
 import fr.solutec.model.Objectif;
 import fr.solutec.model.User;
 import java.sql.Connection;
@@ -65,10 +66,50 @@ public class ObjectifDao {
         
         
         requete.execute();
-        
-        
-        
-        
     }
     
+    public static String etatObj(Objectif o, User u) throws SQLException{
+        
+        String sql1 = "SELECT * FROM objectif WHERE idobjectif = " + o.getIdobjectif();
+        
+        Connection connexion = AccessBd.getConnection();
+        
+        Statement requete1 = connexion.createStatement();
+                   
+        ResultSet rs1 = requete1.executeQuery(sql1);
+        
+        Objectif obj = new Objectif();
+        String a = "";
+        
+        if(rs1.next()){
+            obj.setType(rs1.getString("Type"));
+            obj.setValeur(rs1.getDouble("Valeur"));
+            obj.setDateDeb(rs1.getDate("dateDeb"));
+            obj.setDateFin(rs1.getDate("DateFin"));
+            
+            String sql2 = "SELECT SUM(Valeur) as Somme FROM activite WHERE ( User_idUser = " + u.getIdUser() + " && Type =" + obj.getType() + " && Date > " + obj.getDateDeb() + "&& Date <" + obj.getDateFin() + ")";
+
+            Statement requete2 = connexion.createStatement();
+
+            ResultSet rs2 = requete2.executeQuery(sql2);    
+
+            if(rs2.next()){
+
+                double S;
+                S = rs2.getDouble("Somme");
+
+                if (S >= o.getValeur()){
+                    a = "yeah";
+                }
+                else {
+                    a = "Noooo";
+                }    
+            }
+            else {
+                a = "test";
+            }
+        }
+        return a;
+        
+     }
 }

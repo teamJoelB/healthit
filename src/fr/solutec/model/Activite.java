@@ -28,6 +28,10 @@ public class Activite {
         this.dateAct = dateAct;
         this.idUser = idUser;
     }
+    
+    public Activite (Double valeur){
+        this.valeur = valeur;
+    }
 
     public int getIdActivite() {
         return idActivite;
