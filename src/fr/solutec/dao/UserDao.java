@@ -146,6 +146,12 @@ public class UserDao {
         requete8.setInt(2, person.getIdUser());
         requete8.execute();
        
+         String sql9 = "UPDATE user SET DateCo = ? WHERE IdUser = ?";
+        
+        PreparedStatement requete9 = connexion.prepareStatement(sql9);
+        requete9.setDate(1, (Date) person.getDateCo());
+        requete9.setInt(2, person.getIdUser());
+        requete9.execute();
         
     }
 }

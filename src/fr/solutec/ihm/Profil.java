@@ -7,6 +7,7 @@ package fr.solutec.ihm;
 
 import fr.solutec.dao.UserDao;
 import fr.solutec.model.User;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -230,6 +231,7 @@ public class Profil extends javax.swing.JFrame {
         txtAge.setText(String.valueOf(u.getAge()));
         txtPoids.setText(String.valueOf(u.getPoids()));
         txtTaille.setText(String.valueOf(u.getTaille()));
+        cbSexe.setSelectedItem(u.getSexe());
                 
     }//GEN-LAST:event_formWindowOpened
 
@@ -244,9 +246,9 @@ public class Profil extends javax.swing.JFrame {
             Double poids = Double.parseDouble(txtPoids.getText());
             Double taille = Double.parseDouble(txtTaille.getText());
             int id = u.getIdUser();
+            Date dateCo = u.getDateCo();
             
-            
-            User u1 = new User(id, nom, prenom, mdp, mail, age, sexe, poids, taille);
+            User u1 = new User(id, nom, prenom, mdp, mail, age, sexe, poids, taille, dateCo);
             
             try {
             UserDao.MajProfil(u1); 
