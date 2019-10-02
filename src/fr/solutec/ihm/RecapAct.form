@@ -113,6 +113,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Historique des activit&#xe9;s"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btHistoriqueActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -138,6 +141,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Retour"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbAct">
           <Properties>

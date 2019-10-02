@@ -5,7 +5,7 @@
  */
 package fr.solutec.dao;
 
-import fr.solutec.model.Activite;
+import fr.solutec.model.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -35,11 +35,11 @@ public class ActiviteDao {
         requete.execute();
      }
      
-     public static List<Activite> getActivitesUser() throws SQLException{
+     public static List<Activite> getActivitesUser(User u) throws SQLException{
          
         List<Activite> result = new ArrayList<>();
-        
-        String sql = "SELECT * FROM activite";
+        int idUserActif = u.getIdUser();
+        String sql = "SELECT * FROM activite WHERE User_idUser =" + idUserActif;
         Connection connexion = AccessBd.getConnection();
         
         Statement requette = connexion.createStatement();
